@@ -63,7 +63,7 @@ class NewVisitorTest(LiveServerTestCase):
         # The page updates again and now shows both items on her list
         self.wait_for_row_in_list_table('1: Buy peacock feathers')
         self.wait_for_row_in_list_table('2: Use peacock feathers to make a fly')
-        
+
     def test_multiple_users_can_start_lists_at_different_urls(self):
         # Edith starts a new to-do list
         self.browser.get(self.live_server_url)
@@ -103,7 +103,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         # Again, there is no trace of Ediths's list
         page_text = self.browser.find_element_by_tag_name('body').text
-        self.asserNotIn('Buy peacock feathers', page_text)
+        self.assertNotIn('Buy peacock feathers', page_text)
         self.assertIn('Buy milk', page_text)
 
         # Satisfied they both go back to sleep
